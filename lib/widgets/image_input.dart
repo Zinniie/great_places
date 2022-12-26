@@ -8,9 +8,9 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 class ImageInput extends StatefulWidget {
-  const ImageInput(void Function(File pickedImage) selectImage,
-      {super.key, this.onSelectImage});
-  final Function? onSelectImage;
+  final Function onSelectImage;
+
+  ImageInput(this.onSelectImage);
 
   @override
   State<ImageInput> createState() => _ImageInputState();
@@ -36,7 +36,7 @@ class _ImageInputState extends State<ImageInput> {
     final appDir = await syspaths.getApplicationDocumentsDirectory();
     final fileName = path.basename(imageFile.path);
     final savedImage = await _storedImage!.copy('${appDir.path}/$fileName');
-    widget.onSelectImage!(savedImage);
+    widget.onSelectImage(savedImage);
   }
 
   @override
