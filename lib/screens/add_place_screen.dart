@@ -3,6 +3,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:great_places/widgets/location_input.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/great_places.dart';
@@ -57,6 +58,10 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
                       height: 10,
                     ),
                     ImageInput(_selectImage),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    LocationInput(),
                   ],
                 ),
               ),
@@ -78,3 +83,6 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
     );
   }
 }
+
+
+// app may not stafrt bvecayse of locatiuon pluginl; go to readme and add the android manifests and ios
